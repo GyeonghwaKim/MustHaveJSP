@@ -8,8 +8,10 @@
 		<%} else { %>
 		<a href="../06Session/Logout.jsp">로그아웃</a>
 		<%} %>
-		
 		&nbsp;&nbsp;&nbsp;
+		<a href="../08Board/List.jsp">게시판(페이징X)</a>
+		&nbsp;&nbsp;&nbsp;
+		
 		<a href="../09PagingBoard/List.jsp">게시판(페이징0)</a>
 		</td>
 	</tr>
