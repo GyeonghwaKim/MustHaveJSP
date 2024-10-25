@@ -1,20 +1,6 @@
-<%@page import="model1.board.BoardDTO"%>
-<%@page import="model1.board.BoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="./IsLoggedIn.jsp"%>
-<%
-String num=request.getParameter("num");
-BoardDAO dao=new BoardDAO(application);
-BoardDTO dto=dao.selectView(num);
-String sessionId=session.getAttribute("UserId").toString();
-if(!sessionId.equals(dto.getId())){
-	JSFunction.alertBack("작성자 본인만 수정할 수 있습니다.",out);
-	return;
-}
-dao.close();
-%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,20 +23,17 @@ function validateForm(form){
 </head>
 <body>
 	<jsp:include page="../Common/Link.jsp" />
-	<!-- 여기서부터 시작 -->
-	<h2>회원제 게시판 - 수정하기(Edit)</h2>
-	<form name="writeFrm" method="post" action="EditProcess.jsp"
+	<h2>회원제 게시판 - 글쓰기(write)</h2>
+	<form name="writeFrm" method="post" action="WriteProcess.jsp"
 		onsubmit="return validateForm(this);">
-		<input type="hidden" name="num" value="<%= dto.getNum() %>"/>
 		<table border="1" width="90%">
 			<tr>
 				<td>제목</td>
-				<td><input type="text" name="title" style="width: 90%;" 
-				value="<%= dto.getTitle()%>" /></td>
+				<td><input type="text" name="title" style="width: 90%;" /></td>
 			</tr>
 			<tr>
 				<td>내용</td>
-				<td><textarea name="content" style="width: 90%; height: 100px"><%= dto.getContent() %>
+				<td><textarea name="content" style="width: 90%; height: 100px">
 </textarea></td>
 			</tr>
 			<tr>
