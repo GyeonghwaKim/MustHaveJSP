@@ -1,6 +1,5 @@
 <%@ page import="java.util.ArrayList"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 // 예시에서 사용할 변수 선언
 pageContext.setAttribute("num1", 9);
