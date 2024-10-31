@@ -69,6 +69,21 @@
  	<url-pattern>/*</url-pattern>
  </filter-mapping>
  
+ 
+ <filter>
+ <filter-name>BasicFilter</filter-name>
+ 	<filter-class>filter.BasicFilter</filter-class>
+ 	<init-param>
+ 		<param-name>FILTER_INIT_PARAM</param-name>
+ 		<param-value>필터 초기화 매개변수</param-value>
+ 	</init-param>
+ </filter>
+ <filter-mapping>
+ 	<filter-name>BasicFilter</filter-name>
+ 	<url-pattern>/15FilterListener/BasicFilter.jsp</url-pattern>
+ </filter-mapping>
+ 
+ 
  <context-param>
  <param-name>POSTS_PER_PAGE</param-name>
  <param-value>10</param-value>
@@ -130,5 +145,9 @@
   	<servlet-name>MVCBoardWrite</servlet-name>
  	<url-pattern>/mvcboard/write.do</url-pattern>
 </servlet-mapping>
+
+<listener>
+	<listener-class>listener.ContextListener</listener-class>
+</listener>
 
 </web-app>
